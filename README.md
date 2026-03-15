@@ -1,9 +1,10 @@
 # SAS to Snowflake SQL Converter
 
-A Python-based compiler that translates **SAS DATA step** code into optimized **Snowflake SQL**, featuring a three-stage pipeline (tokenizer, parser, code generator) and a React web UI.
+A Python-based compiler that translates **SAS DATA step** code into optimized **Snowflake SQL**, featuring a three-stage pipeline (tokenizer, parser, code generator) with both a React web UI and a Streamlit app for online deployment.
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![CI](https://github.com/linuxra/sas_2_snowflake/actions/workflows/ci.yml/badge.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-deployed-red)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
@@ -108,6 +109,40 @@ Open **http://localhost:5173** in your browser.
 
 ---
 
+## Streamlit App (Online Deployment)
+
+A Streamlit-based app that can be deployed for free on [Streamlit Cloud](https://streamlit.io/cloud) — no server setup required.
+
+### Run Locally
+
+```bash
+pip install streamlit
+streamlit run streamlit_app.py
+```
+
+Open **http://localhost:8501** in your browser.
+
+### Deploy to Streamlit Cloud (Free)
+
+1. Go to [share.streamlit.io](https://share.streamlit.io)
+2. Sign in with your GitHub account
+3. Click **New app** and select:
+   - **Repository:** `linuxra/sas_2_snowflake`
+   - **Branch:** `main`
+   - **Main file path:** `streamlit_app.py`
+4. Click **Deploy**
+
+Your app will be live at `https://linuxra-sas-2-snowflake.streamlit.app` (or similar).
+
+### Features
+
+- 10 preloaded SAS examples in the sidebar
+- Custom macro variable input
+- Dark theme with monospace code styling
+- Warnings displayed for unsupported patterns
+
+---
+
 ## Project Structure
 
 ```
@@ -118,6 +153,7 @@ sas_2_snowflake/
 │   ├── codegen.py             # Code generation (AST -> Snowflake SQL)
 │   ├── functions.py           # SAS-to-Snowflake function mappings
 │   └── converter.py           # High-level API
+├── streamlit_app.py           # Streamlit app (deploy online)
 ├── frontend/                  # React + Vite web UI
 │   ├── src/
 │   │   ├── App.jsx            # Main split-pane editor component
@@ -130,6 +166,7 @@ sas_2_snowflake/
 │   ├── SAS_to_Snowflake_Reference_Guide.pdf
 │   ├── SAS_to_Snowpark_PROC_FREQ_Documentation.pdf
 │   └── generate_docs.py       # Regenerate feature guide PDF
+├── .streamlit/config.toml     # Streamlit theme config
 ├── freq/                      # PROC FREQ converter (Snowpark)
 ├── requirements.txt           # Python dependencies
 └── .github/workflows/ci.yml   # GitHub Actions CI
