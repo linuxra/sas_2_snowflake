@@ -16,5 +16,8 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install dependencies
+        run: pip install pytest
+
       - name: Run tests
-        run: python test_converter.py
+        run: pytest test_converter.py -v
