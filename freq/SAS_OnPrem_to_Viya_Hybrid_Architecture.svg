@@ -1,0 +1,483 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1050" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0e3a8c"/>
+      <stop offset="100%" stop-color="#1a56db"/>
+    </linearGradient>
+    <linearGradient id="onpremGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0f4ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="100%" stop-color="#dcfce7"/>
+    </linearGradient>
+    <linearGradient id="migrationGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fefce8"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+    <linearGradient id="compGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="casGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ede9fe"/>
+      <stop offset="100%" stop-color="#ddd6fe"/>
+    </linearGradient>
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000020"/>
+    </filter>
+    <filter id="shadowHeavy" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="2" dy="3" stdDeviation="5" flood-color="#00000030"/>
+    </filter>
+    <!-- Arrow marker -->
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1a56db"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1050" fill="#f8fafc" rx="8"/>
+
+  <!-- Title Banner -->
+  <rect x="0" y="0" width="1400" height="72" fill="url(#headerGrad)" rx="8"/>
+  <rect x="0" y="60" width="1400" height="12" fill="url(#headerGrad)"/>
+  <text x="700" y="36" text-anchor="middle" fill="white" font-size="24" font-weight="bold">SAS On-Premises to SAS Viya — Hybrid Migration Architecture</text>
+  <text x="700" y="56" text-anchor="middle" fill="#93c5fd" font-size="13">Detailed Technical View: Infrastructure, Data Flow, Services, Authentication &amp; Connectivity</text>
+
+  <!-- ============================================================ -->
+  <!-- LEFT ZONE: ON-PREMISES (SAS 9.4 / Grid)                     -->
+  <!-- ============================================================ -->
+  <rect x="20" y="90" width="440" height="730" rx="12" fill="url(#onpremGrad)" stroke="#3b82f6" stroke-width="2" filter="url(#shadowHeavy)"/>
+  <rect x="20" y="90" width="440" height="38" rx="12" fill="#1e40af"/>
+  <rect x="20" y="116" width="440" height="12" fill="#1e40af"/>
+  <text x="240" y="115" text-anchor="middle" fill="white" font-size="15" font-weight="bold">ON-PREMISES — SAS 9.4 / SAS Grid</text>
+
+  <!-- SAS Metadata Server -->
+  <rect x="40" y="142" width="190" height="72" rx="8" fill="url(#compGrad)" stroke="#6366f1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="40" y="142" width="190" height="24" rx="8" fill="#6366f1"/>
+  <rect x="40" y="158" width="190" height="8" fill="#6366f1"/>
+  <text x="135" y="159" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SAS Metadata Server</text>
+  <text x="135" y="182" text-anchor="middle" fill="#374151" font-size="9">User/Group Definitions</text>
+  <text x="135" y="195" text-anchor="middle" fill="#374151" font-size="9">Libraries &amp; Permissions</text>
+  <text x="135" y="208" text-anchor="middle" fill="#6b7280" font-size="8">Port 8561 (TCP)</text>
+
+  <!-- SAS Workspace Server -->
+  <rect x="250" y="142" width="190" height="72" rx="8" fill="url(#compGrad)" stroke="#6366f1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="250" y="142" width="190" height="24" rx="8" fill="#6366f1"/>
+  <rect x="250" y="158" width="190" height="8" fill="#6366f1"/>
+  <text x="345" y="159" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SAS Workspace Server</text>
+  <text x="345" y="182" text-anchor="middle" fill="#374151" font-size="9">SAS Code Execution</text>
+  <text x="345" y="195" text-anchor="middle" fill="#374151" font-size="9">PROC FREQ, DATA steps</text>
+  <text x="345" y="208" text-anchor="middle" fill="#6b7280" font-size="8">Port 8591 (IOM)</text>
+
+  <!-- SAS Stored Processes -->
+  <rect x="40" y="226" width="190" height="62" rx="8" fill="url(#compGrad)" stroke="#6366f1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="40" y="226" width="190" height="24" rx="8" fill="#818cf8"/>
+  <rect x="40" y="242" width="190" height="8" fill="#818cf8"/>
+  <text x="135" y="243" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Stored Processes / EG</text>
+  <text x="135" y="264" text-anchor="middle" fill="#374151" font-size="9">Enterprise Guide Projects</text>
+  <text x="135" y="278" text-anchor="middle" fill="#374151" font-size="9">.sas, .egp, .spk files</text>
+
+  <!-- SAS OLAP / BI -->
+  <rect x="250" y="226" width="190" height="62" rx="8" fill="url(#compGrad)" stroke="#6366f1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="250" y="226" width="190" height="24" rx="8" fill="#818cf8"/>
+  <rect x="250" y="242" width="190" height="8" fill="#818cf8"/>
+  <text x="345" y="243" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SAS BI / Web Reports</text>
+  <text x="345" y="264" text-anchor="middle" fill="#374151" font-size="9">Visual Analytics 7.x</text>
+  <text x="345" y="278" text-anchor="middle" fill="#374151" font-size="9">Information Maps, OLAP</text>
+
+  <!-- On-Prem Data Layer -->
+  <rect x="40" y="304" width="400" height="32" rx="6" fill="#1e3a5f" filter="url(#shadow)"/>
+  <text x="240" y="325" text-anchor="middle" fill="white" font-size="11" font-weight="bold">On-Premises Data Layer</text>
+
+  <!-- Data Sources -->
+  <rect x="40" y="346" width="125" height="70" rx="8" fill="url(#compGrad)" stroke="#0369a1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="102" y="366" text-anchor="middle" fill="#0369a1" font-size="10" font-weight="bold">Oracle / DB2</text>
+  <text x="102" y="381" text-anchor="middle" fill="#374151" font-size="9">Teradata</text>
+  <text x="102" y="395" text-anchor="middle" fill="#374151" font-size="9">SQL Server</text>
+  <text x="102" y="409" text-anchor="middle" fill="#6b7280" font-size="8">ODBC/JDBC</text>
+
+  <rect x="178" y="346" width="125" height="70" rx="8" fill="url(#compGrad)" stroke="#0369a1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="240" y="366" text-anchor="middle" fill="#0369a1" font-size="10" font-weight="bold">SAS Datasets</text>
+  <text x="240" y="381" text-anchor="middle" fill="#374151" font-size="9">.sas7bdat files</text>
+  <text x="240" y="395" text-anchor="middle" fill="#374151" font-size="9">SASLIB directories</text>
+  <text x="240" y="409" text-anchor="middle" fill="#6b7280" font-size="8">NFS / CIFS shares</text>
+
+  <rect x="316" y="346" width="125" height="70" rx="8" fill="url(#compGrad)" stroke="#0369a1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="378" y="366" text-anchor="middle" fill="#0369a1" font-size="10" font-weight="bold">Flat Files</text>
+  <text x="378" y="381" text-anchor="middle" fill="#374151" font-size="9">CSV, Excel, XML</text>
+  <text x="378" y="395" text-anchor="middle" fill="#374151" font-size="9">HDFS / Hadoop</text>
+  <text x="378" y="409" text-anchor="middle" fill="#6b7280" font-size="8">SFTP / SCP</text>
+
+  <!-- SAS/ACCESS Engines -->
+  <rect x="40" y="428" width="400" height="36" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1" filter="url(#shadow)"/>
+  <text x="240" y="451" text-anchor="middle" fill="#4338ca" font-size="10" font-weight="bold">SAS/ACCESS Engines — ODBC, JDBC, OLE DB, Bulk Load</text>
+
+  <!-- Authentication -->
+  <rect x="40" y="478" width="190" height="62" rx="8" fill="url(#compGrad)" stroke="#dc2626" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="40" y="478" width="190" height="24" rx="8" fill="#dc2626"/>
+  <rect x="40" y="494" width="190" height="8" fill="#dc2626"/>
+  <text x="135" y="495" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Authentication</text>
+  <text x="135" y="517" text-anchor="middle" fill="#374151" font-size="9">LDAP / Active Directory</text>
+  <text x="135" y="531" text-anchor="middle" fill="#374151" font-size="9">Kerberos / PAM</text>
+
+  <!-- SAS Grid Manager -->
+  <rect x="250" y="478" width="190" height="62" rx="8" fill="url(#compGrad)" stroke="#7c3aed" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="250" y="478" width="190" height="24" rx="8" fill="#7c3aed"/>
+  <rect x="250" y="494" width="190" height="8" fill="#7c3aed"/>
+  <text x="345" y="495" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SAS Grid Manager</text>
+  <text x="345" y="517" text-anchor="middle" fill="#374151" font-size="9">LSF / PBS job scheduler</text>
+  <text x="345" y="531" text-anchor="middle" fill="#374151" font-size="9">Shared SASWORK</text>
+
+  <!-- Scheduling -->
+  <rect x="40" y="554" width="400" height="42" rx="8" fill="url(#compGrad)" stroke="#9333ea" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="40" y="554" width="400" height="22" rx="8" fill="#9333ea"/>
+  <rect x="40" y="568" width="400" height="8" fill="#9333ea"/>
+  <text x="240" y="571" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Batch Scheduling &amp; Automation</text>
+  <text x="240" y="590" text-anchor="middle" fill="#374151" font-size="9">Platform LSF | cron | Control-M | SAS Schedule Manager | DI Studio flows</text>
+
+  <!-- Macro libraries -->
+  <rect x="40" y="608" width="195" height="52" rx="8" fill="url(#compGrad)" stroke="#6366f1" stroke-width="1" filter="url(#shadow)"/>
+  <text x="137" y="628" text-anchor="middle" fill="#4338ca" font-size="10" font-weight="bold">SAS Macro Libraries</text>
+  <text x="137" y="643" text-anchor="middle" fill="#374151" font-size="9">%macros, autocall, formats</text>
+  <text x="137" y="656" text-anchor="middle" fill="#6b7280" font-size="8">SASAUTOS, FMTSEARCH</text>
+
+  <!-- Custom code -->
+  <rect x="245" y="608" width="195" height="52" rx="8" fill="url(#compGrad)" stroke="#6366f1" stroke-width="1" filter="url(#shadow)"/>
+  <text x="342" y="628" text-anchor="middle" fill="#4338ca" font-size="10" font-weight="bold">Custom SAS Programs</text>
+  <text x="342" y="643" text-anchor="middle" fill="#374151" font-size="9">PROC FREQ, MEANS, SQL</text>
+  <text x="342" y="656" text-anchor="middle" fill="#6b7280" font-size="8">DATA steps, IML, STAT</text>
+
+  <!-- Network -->
+  <rect x="40" y="672" width="400" height="38" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1" filter="url(#shadow)"/>
+  <text x="240" y="691" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="bold">Corporate Network / Firewall</text>
+  <text x="240" y="704" text-anchor="middle" fill="#991b1b" font-size="8">DMZ | VPN Tunnel | ExpressRoute / Direct Connect | TLS 1.2+</text>
+
+  <!-- On-prem Kubernetes -->
+  <rect x="40" y="722" width="400" height="86" rx="8" fill="url(#casGrad)" stroke="#7c3aed" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="40" y="722" width="400" height="24" rx="8" fill="#7c3aed"/>
+  <rect x="40" y="738" width="400" height="8" fill="#7c3aed"/>
+  <text x="240" y="740" text-anchor="middle" fill="white" font-size="10" font-weight="bold">On-Prem Kubernetes Cluster (Optional Viya Node)</text>
+  <text x="240" y="762" text-anchor="middle" fill="#374151" font-size="9">SAS Viya Compute Server (local batch) | CAS Worker Nodes</text>
+  <text x="240" y="778" text-anchor="middle" fill="#374151" font-size="9">Persistent Volumes (NFS) | Container Registry (Harbor/Nexus)</text>
+  <text x="240" y="794" text-anchor="middle" fill="#6b7280" font-size="8">kubectl | Helm Charts | kustomize overlays | cert-manager</text>
+
+  <!-- ============================================================ -->
+  <!-- CENTER: MIGRATION LAYER                                      -->
+  <!-- ============================================================ -->
+  <rect x="480" y="90" width="280" height="730" rx="12" fill="url(#migrationGrad)" stroke="#f59e0b" stroke-width="2" filter="url(#shadowHeavy)"/>
+  <rect x="480" y="90" width="280" height="38" rx="12" fill="#d97706"/>
+  <rect x="480" y="116" width="280" height="12" fill="#d97706"/>
+  <text x="620" y="115" text-anchor="middle" fill="white" font-size="15" font-weight="bold">MIGRATION LAYER</text>
+
+  <!-- SAS Migration Utility -->
+  <rect x="498" y="142" width="244" height="72" rx="8" fill="url(#compGrad)" stroke="#ea580c" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="498" y="142" width="244" height="24" rx="8" fill="#ea580c"/>
+  <rect x="498" y="158" width="244" height="8" fill="#ea580c"/>
+  <text x="620" y="159" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SAS Migration Utility</text>
+  <text x="620" y="180" text-anchor="middle" fill="#374151" font-size="9">Metadata Export (SPK packages)</text>
+  <text x="620" y="193" text-anchor="middle" fill="#374151" font-size="9">User/Group mappings</text>
+  <text x="620" y="206" text-anchor="middle" fill="#6b7280" font-size="8">sas-admin CLI | REST APIs</text>
+
+  <!-- Code Conversion -->
+  <rect x="498" y="226" width="244" height="82" rx="8" fill="url(#compGrad)" stroke="#ea580c" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="498" y="226" width="244" height="24" rx="8" fill="#c2410c"/>
+  <rect x="498" y="242" width="244" height="8" fill="#c2410c"/>
+  <text x="620" y="243" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Code Conversion Engine</text>
+  <text x="620" y="266" text-anchor="middle" fill="#374151" font-size="9">SAS 9 PROC -> Viya CAS Actions</text>
+  <text x="620" y="280" text-anchor="middle" fill="#374151" font-size="9">DATA Step -> CAS Data Step</text>
+  <text x="620" y="294" text-anchor="middle" fill="#374151" font-size="9">Macro refactoring &amp; validation</text>
+  <text x="620" y="306" text-anchor="middle" fill="#6b7280" font-size="8">PROC FREQ -> freqTab.freqTab action</text>
+
+  <!-- Content Assessment -->
+  <rect x="498" y="320" width="244" height="72" rx="8" fill="url(#compGrad)" stroke="#ea580c" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="498" y="320" width="244" height="24" rx="8" fill="#ea580c"/>
+  <rect x="498" y="336" width="244" height="8" fill="#ea580c"/>
+  <text x="620" y="337" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Content Assessment</text>
+  <text x="620" y="358" text-anchor="middle" fill="#374151" font-size="9">SAS Environment Manager scan</text>
+  <text x="620" y="372" text-anchor="middle" fill="#374151" font-size="9">Compatibility matrix analysis</text>
+  <text x="620" y="386" text-anchor="middle" fill="#6b7280" font-size="8">Risk scoring | dependency mapping</text>
+
+  <!-- Data Migration -->
+  <rect x="498" y="404" width="244" height="82" rx="8" fill="url(#compGrad)" stroke="#ea580c" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="498" y="404" width="244" height="24" rx="8" fill="#c2410c"/>
+  <rect x="498" y="420" width="244" height="8" fill="#c2410c"/>
+  <text x="620" y="421" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Data Migration Pipeline</text>
+  <text x="620" y="444" text-anchor="middle" fill="#374151" font-size="9">sas7bdat -> SASHDAT / Parquet</text>
+  <text x="620" y="458" text-anchor="middle" fill="#374151" font-size="9">Bulk upload to CAS libraries</text>
+  <text x="620" y="472" text-anchor="middle" fill="#374151" font-size="9">Database repointing (CASLIB)</text>
+  <text x="620" y="484" text-anchor="middle" fill="#6b7280" font-size="8">proc casutil | REST transfer service</text>
+
+  <!-- Identity Migration -->
+  <rect x="498" y="498" width="244" height="62" rx="8" fill="url(#compGrad)" stroke="#ea580c" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="498" y="498" width="244" height="24" rx="8" fill="#ea580c"/>
+  <rect x="498" y="514" width="244" height="8" fill="#ea580c"/>
+  <text x="620" y="515" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Identity &amp; Auth Migration</text>
+  <text x="620" y="536" text-anchor="middle" fill="#374151" font-size="9">LDAP -> SCIM provisioning</text>
+  <text x="620" y="550" text-anchor="middle" fill="#374151" font-size="9">SAS 9 ACLs -> Viya authorization rules</text>
+
+  <!-- Report Migration -->
+  <rect x="498" y="572" width="244" height="62" rx="8" fill="url(#compGrad)" stroke="#ea580c" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="498" y="572" width="244" height="24" rx="8" fill="#ea580c"/>
+  <rect x="498" y="588" width="244" height="8" fill="#ea580c"/>
+  <text x="620" y="589" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Report &amp; Visual Migration</text>
+  <text x="620" y="610" text-anchor="middle" fill="#374151" font-size="9">VA 7.x reports -> VA on Viya</text>
+  <text x="620" y="624" text-anchor="middle" fill="#374151" font-size="9">sas-viya CLI content transfer</text>
+
+  <!-- Validation -->
+  <rect x="498" y="646" width="244" height="72" rx="8" fill="url(#compGrad)" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="498" y="646" width="244" height="24" rx="8" fill="#16a34a"/>
+  <rect x="498" y="662" width="244" height="8" fill="#16a34a"/>
+  <text x="620" y="663" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Validation &amp; Testing</text>
+  <text x="620" y="684" text-anchor="middle" fill="#374151" font-size="9">Output comparison (SAS 9 vs Viya)</text>
+  <text x="620" y="698" text-anchor="middle" fill="#374151" font-size="9">Regression test suite</text>
+  <text x="620" y="712" text-anchor="middle" fill="#6b7280" font-size="8">Data reconciliation | UAT sign-off</text>
+
+  <!-- Parallel run -->
+  <rect x="498" y="730" width="244" height="52" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="620" y="752" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="bold">Parallel Run Period</text>
+  <text x="620" y="768" text-anchor="middle" fill="#374151" font-size="9">SAS 9 + Viya side-by-side until cutover</text>
+  <text x="620" y="780" text-anchor="middle" fill="#6b7280" font-size="8">Phased decommission of SAS 9</text>
+
+  <!-- ============================================================ -->
+  <!-- RIGHT ZONE: CLOUD — SAS Viya 4                               -->
+  <!-- ============================================================ -->
+  <rect x="780" y="90" width="600" height="730" rx="12" fill="url(#cloudGrad)" stroke="#16a34a" stroke-width="2" filter="url(#shadowHeavy)"/>
+  <rect x="780" y="90" width="600" height="38" rx="12" fill="#15803d"/>
+  <rect x="780" y="116" width="600" height="12" fill="#15803d"/>
+  <text x="1080" y="115" text-anchor="middle" fill="white" font-size="15" font-weight="bold">CLOUD — SAS Viya 4 on Kubernetes (AWS / Azure / GCP)</text>
+
+  <!-- Kubernetes cluster -->
+  <rect x="798" y="140" width="564" height="28" rx="6" fill="#166534" filter="url(#shadow)"/>
+  <text x="1080" y="159" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Managed Kubernetes (EKS / AKS / GKE) — Ingress Controller (NGINX / Istio)</text>
+
+  <!-- SAS Viya Microservices Row 1 -->
+  <rect x="798" y="178" width="180" height="72" rx="8" fill="url(#compGrad)" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="798" y="178" width="180" height="24" rx="8" fill="#16a34a"/>
+  <rect x="798" y="194" width="180" height="8" fill="#16a34a"/>
+  <text x="888" y="195" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SAS Logon (OAuth)</text>
+  <text x="888" y="218" text-anchor="middle" fill="#374151" font-size="9">SCIM / LDAP integration</text>
+  <text x="888" y="232" text-anchor="middle" fill="#374151" font-size="9">OAuth 2.0 / OIDC tokens</text>
+  <text x="888" y="244" text-anchor="middle" fill="#6b7280" font-size="8">Consul | Vault secrets</text>
+
+  <rect x="990" y="178" width="180" height="72" rx="8" fill="url(#compGrad)" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="990" y="178" width="180" height="24" rx="8" fill="#16a34a"/>
+  <rect x="990" y="194" width="180" height="8" fill="#16a34a"/>
+  <text x="1080" y="195" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SAS Drive / Content</text>
+  <text x="1080" y="218" text-anchor="middle" fill="#374151" font-size="9">File management service</text>
+  <text x="1080" y="232" text-anchor="middle" fill="#374151" font-size="9">Folders, reports, programs</text>
+  <text x="1080" y="244" text-anchor="middle" fill="#6b7280" font-size="8">REST API endpoints</text>
+
+  <rect x="1182" y="178" width="180" height="72" rx="8" fill="url(#compGrad)" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="1182" y="178" width="180" height="24" rx="8" fill="#16a34a"/>
+  <rect x="1182" y="194" width="180" height="8" fill="#16a34a"/>
+  <text x="1272" y="195" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SAS Environment Mgr</text>
+  <text x="1272" y="218" text-anchor="middle" fill="#374151" font-size="9">Monitoring &amp; logging</text>
+  <text x="1272" y="232" text-anchor="middle" fill="#374151" font-size="9">Resource management</text>
+  <text x="1272" y="244" text-anchor="middle" fill="#6b7280" font-size="8">Prometheus + Grafana</text>
+
+  <!-- CAS Server (main feature) -->
+  <rect x="798" y="264" width="564" height="120" rx="10" fill="url(#casGrad)" stroke="#7c3aed" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="798" y="264" width="564" height="28" rx="10" fill="#7c3aed"/>
+  <rect x="798" y="284" width="564" height="8" fill="#7c3aed"/>
+  <text x="1080" y="284" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Cloud Analytic Services (CAS) — In-Memory Analytics Engine</text>
+
+  <!-- CAS Controller -->
+  <rect x="812" y="302" width="168" height="72" rx="6" fill="white" stroke="#9333ea" stroke-width="1" filter="url(#shadow)"/>
+  <text x="896" y="320" text-anchor="middle" fill="#7c3aed" font-size="10" font-weight="bold">CAS Controller</text>
+  <text x="896" y="335" text-anchor="middle" fill="#374151" font-size="9">Session management</text>
+  <text x="896" y="349" text-anchor="middle" fill="#374151" font-size="9">Action orchestration</text>
+  <text x="896" y="363" text-anchor="middle" fill="#6b7280" font-size="8">Port 5570 (binary)</text>
+
+  <!-- CAS Workers -->
+  <rect x="992" y="302" width="168" height="72" rx="6" fill="white" stroke="#9333ea" stroke-width="1" filter="url(#shadow)"/>
+  <text x="1076" y="320" text-anchor="middle" fill="#7c3aed" font-size="10" font-weight="bold">CAS Workers (MPP)</text>
+  <text x="1076" y="335" text-anchor="middle" fill="#374151" font-size="9">Distributed compute</text>
+  <text x="1076" y="349" text-anchor="middle" fill="#374151" font-size="9">Auto-scaling pods</text>
+  <text x="1076" y="363" text-anchor="middle" fill="#6b7280" font-size="8">Horizontal pod autoscaler</text>
+
+  <!-- CAS Data -->
+  <rect x="1172" y="302" width="176" height="72" rx="6" fill="white" stroke="#9333ea" stroke-width="1" filter="url(#shadow)"/>
+  <text x="1260" y="320" text-anchor="middle" fill="#7c3aed" font-size="10" font-weight="bold">CAS Libraries (CASLIB)</text>
+  <text x="1260" y="335" text-anchor="middle" fill="#374151" font-size="9">Path-based / DB-based</text>
+  <text x="1260" y="349" text-anchor="middle" fill="#374151" font-size="9">SASHDAT, Parquet, CSV</text>
+  <text x="1260" y="363" text-anchor="middle" fill="#6b7280" font-size="8">S3 / ADLS / GCS backing</text>
+
+  <!-- Compute & Programming Row -->
+  <rect x="798" y="398" width="276" height="72" rx="8" fill="url(#compGrad)" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="798" y="398" width="276" height="24" rx="8" fill="#059669"/>
+  <rect x="798" y="414" width="276" height="8" fill="#059669"/>
+  <text x="936" y="415" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SAS Compute Server (Viya)</text>
+  <text x="936" y="438" text-anchor="middle" fill="#374151" font-size="9">Traditional SAS programming</text>
+  <text x="936" y="452" text-anchor="middle" fill="#374151" font-size="9">PROC FREQ, DATA step, ODS</text>
+  <text x="936" y="464" text-anchor="middle" fill="#6b7280" font-size="8">SAS Studio interface | REST submit</text>
+
+  <rect x="1086" y="398" width="276" height="72" rx="8" fill="url(#compGrad)" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="1086" y="398" width="276" height="24" rx="8" fill="#059669"/>
+  <rect x="1086" y="414" width="276" height="8" fill="#059669"/>
+  <text x="1224" y="415" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SAS Studio (Web IDE)</text>
+  <text x="1224" y="438" text-anchor="middle" fill="#374151" font-size="9">Code editor + visual pipelines</text>
+  <text x="1224" y="452" text-anchor="middle" fill="#374151" font-size="9">Flows, tasks, snippets</text>
+  <text x="1224" y="464" text-anchor="middle" fill="#6b7280" font-size="8">Replaces Enterprise Guide</text>
+
+  <!-- Analytics Row -->
+  <rect x="798" y="484" width="180" height="72" rx="8" fill="url(#compGrad)" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="798" y="484" width="180" height="24" rx="8" fill="#16a34a"/>
+  <rect x="798" y="500" width="180" height="8" fill="#16a34a"/>
+  <text x="888" y="501" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Visual Analytics</text>
+  <text x="888" y="522" text-anchor="middle" fill="#374151" font-size="9">Interactive dashboards</text>
+  <text x="888" y="536" text-anchor="middle" fill="#374151" font-size="9">Self-service BI</text>
+  <text x="888" y="550" text-anchor="middle" fill="#6b7280" font-size="8">Report viewer / designer</text>
+
+  <rect x="990" y="484" width="180" height="72" rx="8" fill="url(#compGrad)" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="990" y="484" width="180" height="24" rx="8" fill="#16a34a"/>
+  <rect x="990" y="500" width="180" height="8" fill="#16a34a"/>
+  <text x="1080" y="501" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Model Studio / VDMML</text>
+  <text x="1080" y="522" text-anchor="middle" fill="#374151" font-size="9">AutoML pipelines</text>
+  <text x="1080" y="536" text-anchor="middle" fill="#374151" font-size="9">Model management</text>
+  <text x="1080" y="550" text-anchor="middle" fill="#6b7280" font-size="8">Champion/challenger</text>
+
+  <rect x="1182" y="484" width="180" height="72" rx="8" fill="url(#compGrad)" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="1182" y="484" width="180" height="24" rx="8" fill="#16a34a"/>
+  <rect x="1182" y="500" width="180" height="8" fill="#16a34a"/>
+  <text x="1272" y="501" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SAS Intelligent Decisioning</text>
+  <text x="1272" y="522" text-anchor="middle" fill="#374151" font-size="9">Decision flows</text>
+  <text x="1272" y="536" text-anchor="middle" fill="#374151" font-size="9">Real-time scoring</text>
+  <text x="1272" y="550" text-anchor="middle" fill="#6b7280" font-size="8">REST API micro-analytic</text>
+
+  <!-- Cloud Data Layer -->
+  <rect x="798" y="572" width="564" height="28" rx="6" fill="#166534" filter="url(#shadow)"/>
+  <text x="1080" y="591" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Cloud Data Layer — CAS Data Connectors</text>
+
+  <!-- Cloud data sources -->
+  <rect x="798" y="610" width="135" height="66" rx="8" fill="url(#compGrad)" stroke="#0369a1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="866" y="630" text-anchor="middle" fill="#0369a1" font-size="10" font-weight="bold">S3 / ADLS</text>
+  <text x="866" y="644" text-anchor="middle" fill="#374151" font-size="9">Object storage</text>
+  <text x="866" y="658" text-anchor="middle" fill="#374151" font-size="9">Data lake (Parquet)</text>
+  <text x="866" y="670" text-anchor="middle" fill="#6b7280" font-size="8">IAM roles</text>
+
+  <rect x="942" y="610" width="135" height="66" rx="8" fill="url(#compGrad)" stroke="#0369a1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="1010" y="630" text-anchor="middle" fill="#0369a1" font-size="10" font-weight="bold">Snowflake</text>
+  <text x="1010" y="644" text-anchor="middle" fill="#374151" font-size="9">Cloud DW</text>
+  <text x="1010" y="658" text-anchor="middle" fill="#374151" font-size="9">CASLIB connector</text>
+  <text x="1010" y="670" text-anchor="middle" fill="#6b7280" font-size="8">Key-pair auth</text>
+
+  <rect x="1086" y="610" width="135" height="66" rx="8" fill="url(#compGrad)" stroke="#0369a1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="1154" y="630" text-anchor="middle" fill="#0369a1" font-size="10" font-weight="bold">Redshift / BQ</text>
+  <text x="1154" y="644" text-anchor="middle" fill="#374151" font-size="9">Cloud databases</text>
+  <text x="1154" y="658" text-anchor="middle" fill="#374151" font-size="9">JDBC connector</text>
+  <text x="1154" y="670" text-anchor="middle" fill="#6b7280" font-size="8">Service accounts</text>
+
+  <rect x="1230" y="610" width="132" height="66" rx="8" fill="url(#compGrad)" stroke="#0369a1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="1296" y="630" text-anchor="middle" fill="#0369a1" font-size="10" font-weight="bold">Databricks</text>
+  <text x="1296" y="644" text-anchor="middle" fill="#374151" font-size="9">Delta Lake</text>
+  <text x="1296" y="658" text-anchor="middle" fill="#374151" font-size="9">Spark connector</text>
+  <text x="1296" y="670" text-anchor="middle" fill="#6b7280" font-size="8">Unity Catalog</text>
+
+  <!-- CI/CD & Ops -->
+  <rect x="798" y="690" width="276" height="62" rx="8" fill="url(#compGrad)" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="798" y="690" width="276" height="24" rx="8" fill="#15803d"/>
+  <rect x="798" y="706" width="276" height="8" fill="#15803d"/>
+  <text x="936" y="707" text-anchor="middle" fill="white" font-size="10" font-weight="bold">CI/CD &amp; GitOps</text>
+  <text x="936" y="728" text-anchor="middle" fill="#374151" font-size="9">Git integration (SAS Studio)</text>
+  <text x="936" y="742" text-anchor="middle" fill="#374151" font-size="9">Jenkins / GitHub Actions pipelines</text>
+
+  <rect x="1086" y="690" width="276" height="62" rx="8" fill="url(#compGrad)" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="1086" y="690" width="276" height="24" rx="8" fill="#15803d"/>
+  <rect x="1086" y="706" width="276" height="8" fill="#15803d"/>
+  <text x="1224" y="707" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SAS Job Execution</text>
+  <text x="1224" y="728" text-anchor="middle" fill="#374151" font-size="9">SAS Workflow Manager</text>
+  <text x="1224" y="742" text-anchor="middle" fill="#374151" font-size="9">REST-based scheduling | cron pods</text>
+
+  <!-- APIs -->
+  <rect x="798" y="764" width="564" height="44" rx="8" fill="#ecfdf5" stroke="#16a34a" stroke-width="1" filter="url(#shadow)"/>
+  <text x="1080" y="785" text-anchor="middle" fill="#15803d" font-size="10" font-weight="bold">SAS Viya REST APIs — /compute, /cas, /reports, /authorization, /dataTables, /jobExecution</text>
+  <text x="1080" y="800" text-anchor="middle" fill="#374151" font-size="9">Python (saspy, swat) | R (swat) | Java SDK | CLI (sas-viya) | Open API / Swagger</text>
+
+  <!-- ============================================================ -->
+  <!-- DATA FLOW ARROWS                                             -->
+  <!-- ============================================================ -->
+
+  <!-- On-Prem -> Migration -->
+  <line x1="460" y1="178" x2="496" y2="178" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowOrange)" stroke-dasharray="6,3"/>
+  <line x1="460" y1="257" x2="496" y2="257" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowOrange)" stroke-dasharray="6,3"/>
+  <line x1="460" y1="380" x2="496" y2="445" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowOrange)" stroke-dasharray="6,3"/>
+  <line x1="460" y1="509" x2="496" y2="529" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowOrange)" stroke-dasharray="6,3"/>
+  <line x1="460" y1="576" x2="496" y2="603" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowOrange)" stroke-dasharray="6,3"/>
+
+  <!-- Migration -> Cloud -->
+  <line x1="744" y1="178" x2="796" y2="210" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <line x1="744" y1="267" x2="796" y2="320" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <line x1="744" y1="445" x2="796" y2="430" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <line x1="744" y1="529" x2="796" y2="220" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <line x1="744" y1="603" x2="796" y2="520" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+
+  <!-- On-Prem K8s <-> Cloud (hybrid sync) -->
+  <line x1="440" y1="770" x2="796" y2="770" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrowPurple)" stroke-dasharray="8,4"/>
+  <text x="618" y="762" text-anchor="middle" fill="#7c3aed" font-size="8" font-weight="bold">Hybrid Sync</text>
+
+  <!-- ============================================================ -->
+  <!-- BOTTOM: LEGEND                                               -->
+  <!-- ============================================================ -->
+  <rect x="20" y="835" width="1360" height="205" rx="10" fill="white" stroke="#d1d5db" stroke-width="1" filter="url(#shadow)"/>
+
+  <!-- Legend Title -->
+  <text x="700" y="860" text-anchor="middle" fill="#0e3a8c" font-size="15" font-weight="bold">Architecture Legend &amp; Migration Flow Summary</text>
+
+  <!-- Color legend -->
+  <rect x="40" y="878" width="18" height="18" rx="4" fill="#1e40af"/>
+  <text x="66" y="893" fill="#374151" font-size="10">On-Premises SAS 9.4 / Grid Zone</text>
+
+  <rect x="40" y="904" width="18" height="18" rx="4" fill="#d97706"/>
+  <text x="66" y="919" fill="#374151" font-size="10">Migration &amp; Conversion Layer</text>
+
+  <rect x="40" y="930" width="18" height="18" rx="4" fill="#15803d"/>
+  <text x="66" y="945" fill="#374151" font-size="10">Cloud SAS Viya 4 (Kubernetes)</text>
+
+  <rect x="40" y="956" width="18" height="18" rx="4" fill="#7c3aed"/>
+  <text x="66" y="971" fill="#374151" font-size="10">CAS Engine / Hybrid Kubernetes</text>
+
+  <rect x="40" y="982" width="18" height="18" rx="4" fill="#dc2626"/>
+  <text x="66" y="997" fill="#374151" font-size="10">Security &amp; Authentication</text>
+
+  <!-- Arrow legend -->
+  <line x1="340" y1="887" x2="385" y2="887" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="6,3" marker-end="url(#arrowOrange)"/>
+  <text x="395" y="891" fill="#374151" font-size="10">Migration data flow (dashed = in-progress)</text>
+
+  <line x1="340" y1="913" x2="385" y2="913" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <text x="395" y="917" fill="#374151" font-size="10">Deployed to Viya (solid = completed)</text>
+
+  <line x1="340" y1="939" x2="385" y2="939" stroke="#7c3aed" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowPurple)"/>
+  <text x="395" y="943" fill="#374151" font-size="10">Hybrid sync / on-prem Kubernetes link</text>
+
+  <!-- Key protocols -->
+  <text x="700" y="893" fill="#0e3a8c" font-size="11" font-weight="bold">Key Protocols &amp; Ports</text>
+  <text x="700" y="912" fill="#374151" font-size="9.5">SAS 9 Metadata: TCP 8561 | IOM Workspace: 8591 | CAS Binary: 5570 | CAS HTTP: 8777</text>
+  <text x="700" y="928" fill="#374151" font-size="9.5">Viya REST APIs: HTTPS 443 | OAuth/OIDC: 443 | SCIM Provisioning: 443 | Git SSH: 22</text>
+  <text x="700" y="944" fill="#374151" font-size="9.5">VPN/ExpressRoute: IPSec | Database: ODBC 1521/1433/5432 | Object Storage: HTTPS 443</text>
+
+  <!-- Migration phases -->
+  <text x="700" y="972" fill="#0e3a8c" font-size="11" font-weight="bold">Migration Phases</text>
+  <text x="700" y="991" fill="#374151" font-size="9.5">1. Assess (scan metadata + code) -> 2. Convert (code + data + reports) -> 3. Validate (parallel run) -> 4. Cutover (decommission SAS 9)</text>
+
+  <!-- Hybrid note -->
+  <text x="700" y="1016" fill="#7c3aed" font-size="10" font-weight="bold">Hybrid Model: On-prem K8s runs CAS workers for sensitive data; cloud K8s handles compute scale-out. Connected via VPN/ExpressRoute with shared CASLIB federation.</text>
+
+  <!-- Version stamp -->
+  <text x="1340" y="1038" text-anchor="end" fill="#9ca3af" font-size="8">v1.0 | March 2026</text>
+</svg>
