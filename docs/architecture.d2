@@ -1,0 +1,157 @@
+direction: right
+
+title: |md
+  # SAS to Snowflake Converter
+|
+
+# ── Compiler Pipeline ──────────────────────────────────────
+
+SAS Code -> Tokenizer -> Parser -> Code Generator -> Snowflake SQL
+
+SAS Code: {
+  label: "SAS Code\nDATA step input"
+  style: {
+    fill: "#3c823c"
+    font-color: "#ffffff"
+    stroke: "#2d6b2d"
+    border-radius: 10
+  }
+}
+
+Tokenizer: {
+  label: "Tokenizer\ntokenizer.py\n100+ token types"
+  style: {
+    fill: "#285faa"
+    font-color: "#ffffff"
+    stroke: "#1e4d8c"
+    border-radius: 10
+  }
+}
+
+Parser: {
+  label: "Parser\nparser.py\nRecursive descent"
+  style: {
+    fill: "#285faa"
+    font-color: "#ffffff"
+    stroke: "#1e4d8c"
+    border-radius: 10
+  }
+}
+
+Code Generator: {
+  label: "Code Generator\ncodegen.py\nJOIN, CASE WHEN\nUNPIVOT, QUALIFY"
+  style: {
+    fill: "#285faa"
+    font-color: "#ffffff"
+    stroke: "#1e4d8c"
+    border-radius: 10
+  }
+}
+
+Snowflake SQL: {
+  style: {
+    fill: "#be6e28"
+    font-color: "#ffffff"
+    stroke: "#9c5a20"
+    border-radius: 10
+  }
+}
+
+functions.py: {
+  label: "functions.py\n50+ SAS mappings"
+  style: {
+    fill: "#4690c8"
+    font-color: "#ffffff"
+    stroke: "#3578a8"
+    border-radius: 8
+  }
+}
+
+functions.py -> Code Generator: registry {
+  style.stroke-dash: 4
+}
+
+SAS Code -> Tokenizer: raw code
+Tokenizer -> Parser: tokens
+Parser -> Code Generator: AST
+Code Generator -> Snowflake SQL: SQL
+
+# ── Interfaces ─────────────────────────────────────────────
+
+React Frontend: {
+  label: "React Frontend\nVite + React 19\nPort 5173"
+  style: {
+    fill: "#328282"
+    font-color: "#ffffff"
+    stroke: "#286868"
+    border-radius: 10
+  }
+}
+
+FastAPI: {
+  label: "FastAPI Backend\napi_server.py\nPort 8000"
+  style: {
+    fill: "#6e326e"
+    font-color: "#ffffff"
+    stroke: "#5a285a"
+    border-radius: 10
+  }
+}
+
+Streamlit: {
+  label: "Streamlit App\nstreamlit_app.py\nCloud deploy"
+  style: {
+    fill: "#be3c3c"
+    font-color: "#ffffff"
+    stroke: "#9c3030"
+    border-radius: 10
+  }
+}
+
+CLI: {
+  label: "CLI\n__main__.py\nFile / stdin"
+  style: {
+    fill: "#5a5a5a"
+    font-color: "#ffffff"
+    stroke: "#444444"
+    border-radius: 10
+  }
+}
+
+Converter: {
+  label: "Converter\nconverter.py"
+  style: {
+    fill: "#1e3c78"
+    font-color: "#ffffff"
+    stroke: "#142a5a"
+    border-radius: 10
+  }
+}
+
+React Frontend -> FastAPI: /api
+FastAPI -> Converter
+Streamlit -> Converter
+CLI -> Converter
+Converter -> Tokenizer
+
+# ── CI/CD ──────────────────────────────────────────────────
+
+GitHub Actions: {
+  label: "GitHub Actions\npytest on push/PR\n28 tests"
+  style: {
+    fill: "#2d4470"
+    font-color: "#c8daf0"
+    stroke: "#1e3058"
+    border-radius: 8
+  }
+}
+
+Streamlit Cloud: {
+  label: "Streamlit Cloud\nAuto-redeploy"
+  style: {
+    fill: "#2d4470"
+    font-color: "#c8daf0"
+    stroke: "#1e3058"
+    border-radius: 8
+  }
+}
