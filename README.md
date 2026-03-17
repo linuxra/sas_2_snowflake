@@ -214,6 +214,7 @@ CI runs automatically on every push to `main` and on pull requests.
 
 | Document | Description |
 |----------|-------------|
+| [Architecture Diagram](docs/Architecture_Diagram.pdf) | Visual overview of compiler pipeline, web interfaces, and SAS patterns |
 | [Feature Guide](docs/SAS_to_Snowflake_Feature_Guide.pdf) | All 15 features with SAS input, SQL output, and CI assertions |
 | [GitHub & CI Guide](docs/GitHub_Integration_CI_Guide.pdf) | Step-by-step: git init, GitHub repo, CI/CD, Streamlit deploy |
 | [Reference Guide](docs/SAS_to_Snowflake_Reference_Guide.pdf) | SAS-to-Snowflake syntax reference |
