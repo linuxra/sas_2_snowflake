@@ -176,12 +176,107 @@ sas_2_snowflake/
 
 ## Architecture
 
-The converter uses a **three-stage compiler pipeline**:
+### Compiler Pipeline
 
+```mermaid
+graph LR
+    A["<b>SAS Code</b><br/>DATA step input"]:::input
+    B["<b>Tokenizer</b><br/><i>tokenizer.py</i><br/>100+ token types"]:::stage
+    C["<b>Parser</b><br/><i>parser.py</i><br/>Recursive descent<br/>20+ AST nodes"]:::stage
+    D["<b>Code Generator</b><br/><i>codegen.py</i><br/>JOIN, CASE WHEN<br/>UNPIVOT, QUALIFY"]:::stage
+    E["<b>Snowflake SQL</b>"]:::output
+    F["<b>functions.py</b><br/>50+ SAS function<br/>mappings"]:::helper
+
+    A -->|raw code| B
+    B -->|tokens| C
+    C -->|AST| D
+    D -->|SQL string| E
+    F -.->|registry| D
+
+    classDef input fill:#3c823c,stroke:#2d6b2d,color:#fff,rx:8
+    classDef stage fill:#285faa,stroke:#1e4d8c,color:#fff,rx:8
+    classDef output fill:#be6e28,stroke:#9c5a20,color:#fff,rx:8
+    classDef helper fill:#4690c8,stroke:#3578a8,color:#fff,rx:8
 ```
-SAS Code  -->  Tokenizer  -->  Parser  -->  Code Generator  -->  Snowflake SQL
-              (tokenizer.py)  (parser.py)    (codegen.py)
+
+### Web Interfaces & Deployment
+
+```mermaid
+graph TB
+    subgraph interfaces["Interfaces"]
+        direction TB
+        R["<b>React Frontend</b><br/>Vite + React 19<br/>Split-pane editor<br/>Port 5173"]:::react
+        F["<b>FastAPI Backend</b><br/>api_server.py<br/>POST /api/convert<br/>Port 8000"]:::fastapi
+        S["<b>Streamlit App</b><br/>streamlit_app.py<br/>10 examples<br/>Cloud deploy"]:::streamlit
+        CLI["<b>CLI</b><br/>__main__.py<br/>File/stdin input"]:::cli
+    end
+
+    CONV["<b>SAS to Snowflake<br/>Converter</b><br/><i>converter.py</i>"]:::core
+
+    R -->|"/api proxy"| F
+    F --> CONV
+    S --> CONV
+    CLI --> CONV
+
+    subgraph deploy["Deployment"]
+        GH["<b>GitHub Actions</b><br/>pytest on push/PR"]:::ci
+        SC["<b>Streamlit Cloud</b><br/>Auto-redeploy"]:::ci
+    end
+
+    CONV -.-> GH
+    S -.-> SC
+
+    classDef react fill:#328282,stroke:#286868,color:#fff,rx:8
+    classDef fastapi fill:#6e326e,stroke:#5a285a,color:#fff,rx:8
+    classDef streamlit fill:#be3c3c,stroke:#9c3030,color:#fff,rx:8
+    classDef cli fill:#5a5a5a,stroke:#444,color:#fff,rx:8
+    classDef core fill:#285faa,stroke:#1e4d8c,color:#fff,rx:8
+    classDef ci fill:#233250,stroke:#1a2640,color:#b4c8e6,rx:8
 ```
+
+### SAS to Snowflake Pattern Mapping
+
+```mermaid
+graph LR
+    subgraph sas["SAS Patterns"]
+        S1["KEEP / DROP / RENAME"]
+        S2["IF / THEN / ELSE"]
+        S3["MERGE with IN="]
+        S4["%LET macros"]
+        S5["RETAIN"]
+        S6["FIRST. / LAST."]
+        S7["Multiple SET"]
+        S8["Array + DO + OUTPUT"]
+        S9["Subsetting IF"]
+    end
+
+    subgraph sf["Snowflake SQL"]
+        F1["EXCLUDE / RENAME"]
+        F2["CASE WHEN"]
+        F3["JOIN inner/left/full"]
+        F4["Inline substitution"]
+        F5["LAG window fn"]
+        F6["ROW_NUMBER OVER"]
+        F7["UNION ALL"]
+        F8["UNPIVOT INCLUDE NULLS"]
+        F9["QUALIFY clause"]
+    end
+
+    S1 --> F1
+    S2 --> F2
+    S3 --> F3
+    S4 --> F4
+    S5 --> F5
+    S6 --> F6
+    S7 --> F7
+    S8 --> F8
+    S9 --> F9
+
+    style sas fill:#f0f7f0,stroke:#90c090,rx:8
+    style sf fill:#eef3fa,stroke:#90b0d0,rx:8
+```
+
+### Pipeline Summary
 
 1. **Tokenizer** - Breaks SAS code into tokens (keywords, identifiers, operators, literals)
 2. **Parser** - Builds an AST (Abstract Syntax Tree) from tokens, handling DATA steps, MERGE, arrays, DO loops, macros
